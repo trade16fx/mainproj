@@ -46,9 +46,8 @@ const { src, dest } = require('gulp'),
 	del = require('del'),
 	ttf2woff = require('gulp-ttf2woff'),
 	ttf2woff2 = require('gulp-ttf2woff2'),
-	fonter = require('gulp-fonter'),
-	fs = require('fs');
-	
+	fonter = require('gulp-fonter')
+	;
 
 
 
@@ -115,13 +114,8 @@ function css() {
 function libsjs() {
 	return src(source_foler + "/js/libs.js")
 	.pipe(fileinclude())
-	.pipe(uglify())	
-	.pipe(
-		rename({
-			extname: ".min.js"
-		})
-	)	
-	.pipe(dest(patch.build.js))		
+	.pipe(uglify())
+	.pipe(dest(patch.build.js)) // Выгружаем готовый файл в папку назначения	
 }
 
 function libscss() {
@@ -186,7 +180,7 @@ gulp.task('svgSprite', function(){
 	.pipe(svgSprite({
 		mode: {
 			stack: {
-				sprite: '../icons/icons.svg', 
+				sprite: '../icons/icons.svg',
 				example: true
 			}
 		}
@@ -194,51 +188,10 @@ gulp.task('svgSprite', function(){
 	.pipe(dest(patch.build.img))
 })
 
-function fonts(argument) {
-	src(patch.src.fonts)
-	.pipe(ttf2woff())
-  .pipe(dest(patch.build.fonts));
 
-	return src(patch.src.fonts)
-	.pipe(ttf2woff2())
-  .pipe(dest(patch.build.fonts));
-}	
-function fontsStyle(params) {
-	let file_content = fs.readFileSync('#src/scss/base/_fonts.scss'); 
-	if (file_content == '') { 
-		fs.writeFile('#src/scss/base/_fonts.scss', '', cb); 
-		return fs.readdir('dist/fonts', function (err, items) { 
-			if (items) { 
-				let c_fontname; 
-				for (var i = 0; i < items.length; i++) { 
-					let fontname = items[i].split('.'); 
-					fontname = fontname[0]; 
-					if (c_fontname != fontname) { 
-						fs.appendFile('#src/scss/base/_fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb); 
-					} 
-					c_fontname = fontname; 
-				} 
-			} 
-		}) 
-	}
-}
-function cb() {	
-}
-
-gulp.task('otf2ttf', function () {
-	return src("wp-content/themes/adoweb/#src/fonts/*.otf")
-	.pipe(fonter({        
-        formats: ['ttf']
-      }))
-  .pipe(gulp.dest('wp-content/themes/adoweb/#src/fonts/'));
-})
-
-
-let build = gulp.series(gulp.parallel(js, css, html, images, fonts), fontsStyle);
+let build = gulp.series(gulp.parallel(js, css, html, images));
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
-exports.fontsStyle = fontsStyle;
-exports.fonts = fonts;
 exports.cleanimg = cleanimg;
 exports.images = images;
 exports.libsjs = libsjs;

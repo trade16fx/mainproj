@@ -1,2 +1,2 @@
-@@include('../modules/sw-slider/_slider.js')
+@@include('../modules/main-slider/_slider.js')
 

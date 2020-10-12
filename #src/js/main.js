@@ -1,2 +1,4 @@
-@@include('../modules/sw-slider/_slider.js')
+include('./_burger-menu.js')
+include('./_ancor.js')
+include('../modules/main-slider/_slider.js')
 

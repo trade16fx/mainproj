@@ -10,15 +10,14 @@ let patch = {
 		fonts: project_foler + "/fonts/",
 	},
 	src: {
-		html: [source_foler + "/**/*.html", "!" + source_foler + "/html/**/_*.html"],
+		html: [source_foler + "/html/**/*.html", "!" + source_foler + "/html/**/_*.html"],
 		css: source_foler + "/scss/main.scss",
 		js: source_foler + "/js/main.js",
 		img: source_foler + "/images/**/*.{jpg,png,svg,gif,ico,webp}",
 		fonts: source_foler + "/fonts/*.ttf",
 	},
 	watch: {
-		// html: [source_foler + "/html/**/*.html", source_foler + "/modules/**/*.html"],
-		html: source_foler + "/**/*.html",
+		html: [source_foler + "/html/**/*.html", source_foler + "/modules/**/*.html"],
 		css: [source_foler + "/scss/**/*.scss", source_foler + "/modules/**/*.scss"],
 		js: [source_foler + "/js/**/*.js", source_foler + "/modules/**/*.js"],
 		img: source_foler + "/images/**/*.{jpg,png,svg,gif,ico,webp}",		

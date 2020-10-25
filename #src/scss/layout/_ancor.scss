@@ -1,0 +1,27 @@
+.anchor {
+  @media (min-width: 768px) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin-top: 66px;
+  }
+
+  &__cont {
+    @media (min-width: 768px) {
+      position: absolute;
+      top: -66px;
+      left: 0;
+      width: 100%;
+    }
+
+    &.fixed {
+      transition: all .5s ease;
+      position: fixed;
+      z-index: 999;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
+}

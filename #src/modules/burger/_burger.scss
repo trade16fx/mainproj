@@ -75,3 +75,29 @@
 /* mob-menu-btn end */
 
 
+.mobile-panel {
+    @media (max-width: 991px) { 
+
+      position: fixed;
+      left: 0;
+      top: 51px;
+      width: 300px;
+      overflow-y: scroll;
+      background-color: #fff;
+      transition: all .3s;
+      transform: translateX(-100%);
+      z-index: 100;
+        
+    }
+
+    &.active{
+      transform: translateX(0);
+      box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    }
+
+    &__wrap {
+        
+    }
+}
+
+/* mobile-panel end */

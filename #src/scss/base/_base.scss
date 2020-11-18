@@ -49,14 +49,27 @@ body {
   overflow: hidden;
   position: relative;
 }
-
+.frame{
+  padding-top: 30px;
+  padding-bottom: 30px;
+    @media (min-width: 768px) { 
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    @media (min-width: 992px) { 
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+}
 
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {}
+h6 {
+  margin-top: 0;
+}
 
 body {
   // overflow:hidden;

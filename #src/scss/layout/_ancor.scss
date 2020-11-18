@@ -1,5 +1,5 @@
 .anchor {
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     position: absolute;
     left: 0;
     top: 0;
@@ -8,7 +8,7 @@
   }
 
   &__cont {
-    @media (min-width: 768px) {
+    @media (min-width: 992px) {
       position: absolute;
       top: -66px;
       left: 0;

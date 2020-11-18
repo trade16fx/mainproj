@@ -1,0 +1,41 @@
+.top-panel {
+	position: fixed;
+	padding: 5px 0;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background-color: #fff;
+	border-bottom: 1px solid #999;
+		@media (min-width: 992px) { 
+			display: none;
+			
+	  }
+	&__cont {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__logo-cont {
+		flex: 0 0 50%;
+		img{
+			max-width: 100%; 
+		}
+	}
+	&__btn-cont { 
+		display: flex;
+		align-items: center;
+	}
+	&__phoneBtn {} 
+	&__burger {
+		margin-left: 5px;
+	}
+}
+
+.mobile-phoneBtn {
+    width: 40px;
+    height: 40px;
+    display: block;
+    border-radius: 2px;
+    background: #f2443c url(../images/phone_icon.svg) center no-repeat;
+        background-size: auto;
+    background-size: 65% auto;
+}
